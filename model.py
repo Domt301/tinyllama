@@ -9,8 +9,8 @@ def model_query(query: str):
     pipe = pipeline(
         "text-generation",
         model="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-        torch_dtype=torch.float16,
-        device_map="auto",
+        torch_dtype=torch.bfloat16,
+        device_map="cpu",
     )
 
     # We use the tokenizer's chat template to format each message - see https://huggingface.co/docs/transformers/main/en/chat_templating
